@@ -1,5 +1,6 @@
 import argparse
 import os
+import tempfile
 
 import joblib
 from polyaxon import tracking
@@ -31,10 +32,9 @@ if __name__ == "__main__":
     # Polyaxon
     # This automatically logs metrics relevant to regression
     log_regressor(rfr, X_test, y_test)
-    
-    tracking.log_model(name=rfr, path="model.h5", framework="scikit")
+   
+    with tempfile.TemporaryDirectory() as d:
+        model_path = os.path.join(d, "model.joblib")
+        joblib.dump(rfr, model_path)
+        tracking.log_model(model_path, name="model", framework="scikit-learn", versioned=False) 
 
-    # Logging the model as joblib
-    model_path = os.path.join(tracking.get_outputs_path(), "model.joblib")
-    joblib.dump(rfr, model_path)
-    tracking.log_model(model_path, name="model", framework="scikit-learn")
