@@ -31,6 +31,8 @@ if __name__ == "__main__":
     # Polyaxon
     # This automatically logs metrics relevant to regression
     log_regressor(rfr, X_test, y_test)
+    
+    tracking.log_model(name=rfr, path="model.h5", framework="scikit")
 
     # Logging the model as joblib
     model_path = os.path.join(tracking.get_outputs_path(), "model.joblib")
