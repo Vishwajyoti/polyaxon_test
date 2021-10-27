@@ -14,6 +14,7 @@ import pandas as pd
 
 # from cust_feat import *
 from google.cloud import bigquery
+from google.oauth2 import service_account
 from feast import FeatureStore, RepoConfig
 
 if __name__ == "__main__":
