@@ -74,8 +74,6 @@ if __name__ == "__main__":
     traning_df=training_df.dropna()
 
      
-    X = training_df.drop("Churn", axis=1)
-    y = training_df[["Churn"]]
     X = training_df.drop(columns=["Churn", "CustomerID", "event_timestamp"])
     y = training_df["Churn"]
 
