@@ -96,7 +96,7 @@ if __name__ == "__main__":
     
     print (X.dtypes,"\n",y.dtypes,"\n\n")
 
-    print (X.isnull.any(),"\n")
+    print (X.isnull().any(),"\n")
 
     rfr.fit(X, y)
 
