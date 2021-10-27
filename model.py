@@ -81,7 +81,7 @@ if __name__ == "__main__":
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.20, random_state=42
     )
-    tracking.log_text(X_train.dtypes)
+    print (X_train.dtypes)
 
     tracking.log_data_ref(content=X_train, name="x_train")
     tracking.log_data_ref(content=y_train, name="y_train")
