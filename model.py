@@ -16,7 +16,7 @@ import pandas as pd
 from google.cloud import bigquery
 from google.oauth2 import service_account
 from feast import FeatureStore, RepoConfig
-from cust_feat import *
+#from cust_feat import *
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
