@@ -1,19 +1,33 @@
 version: 1.1
-kind: component
-tags: [examples, scikit-learn]
-inputs:
-- {name: n_estimators, type: int, isOptional: true, value: 100}
-- {name: max_depth, type: int, isOptional: true, value: 5}
-
-run:
-  kind: job
-  init:
-    - git: {"url": "https://github.com/Vishwajyoti/polyaxon_test"}
-  container:
-    image: shabenga/polyaxon-examples
-    workingDir: "{{ globals.artifacts_path }}/outputs"
-    command: ["python", "-u", "model.py"]
-    args: [
-      "--n_estimators={{ n_estimators }}",
-      "--max_depth={{ max_depth }}",
-    ]
+kind: operation
+component:
+  version: 1.1
+  kind: component
+  tags:
+    - examples
+    - scikit-learn
+  inputs:
+    - name: n_estimators
+      type: int
+      value: 100
+      isOptional: true
+    - name: max_depth
+      type: int
+      value: 5
+      isOptional: true
+  run:
+    kind: job
+    init:
+      - git:
+          url: https://github.com/Vishwajyoti/polyaxon_test
+    container:
+      args:
+        - '--n_estimators={{ n_estimators }}'
+        - '--max_depth={{ max_depth }}'
+      command:
+        - python
+        - '-u'
+        - model.py
+      image: vishwa9/vj-polyaxon
+      name: polyaxon-main
+      workingDir: '{{ globals.artifacts_path }}/polyaxon_test'
