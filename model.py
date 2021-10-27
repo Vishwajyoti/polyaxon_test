@@ -23,7 +23,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     credentials = service_account.Credentials.from_service_account_file(
-        "credentials.json", scopes=["https://www.googleapis.com/auth/cloud-platform",],
+        "vj-feat-ml-c83a9fc3f1e5.json", scopes=["https://www.googleapis.com/auth/cloud-platform",],
     )
 
     tracking.init()
