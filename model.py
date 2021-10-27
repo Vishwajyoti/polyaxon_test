@@ -78,24 +78,24 @@ if __name__ == "__main__":
     X = training_df.drop(columns=["Churn", "CustomerID", "event_timestamp"])
     y = training_df["Churn"]
 
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.20, random_state=42
-    )
-    print (X_train.dtypes,"\n",y_train.dtypes)
+   # X_train, X_test, y_train, y_test = train_test_split(
+   #     X, y, test_size=0.20, random_state=42
+   # )
+   # print (X_train.dtypes,"\n",y_train.dtypes)
 
-    tracking.log_data_ref(content=X_train, name="x_train")
-    tracking.log_data_ref(content=y_train, name="y_train")
-    tracking.log_data_ref(content=X_test, name="x_test")
-    tracking.log_data_ref(content=y_test, name="y_test")
+    tracking.log_data_ref(content=X, name="x")
+    tracking.log_data_ref(content=y, name="y")
+   # tracking.log_data_ref(content=X_test, name="x_test")
+   # tracking.log_data_ref(content=y_test, name="y_test")
 
     rfr = RandomForestRegressor(
         n_estimators=args.n_estimators, max_depth=args.max_depth
     )
-    X_train = X_train.dropna()
-    X_test = X_test.dropna()
+   # X_train = X_train.dropna()
+   # X_test = X_test.dropna()
     
-    print (X_train.dtypes,"\n",y_train.dtypes)
-    rfr.fit(X_train, y_train)
+    print (X.dtypes,"\n",y.dtypes)
+    rfr.fit(X, y)
 
     # Polyaxon
     # This automatically logs metrics relevant to regression
