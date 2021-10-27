@@ -67,9 +67,9 @@ if __name__ == "__main__":
         features=features, entity_df=df_entity
     ).to_df()
 
-    tracking.log_artifact(
-        name="data", path="data.csv", kind=V1ArtifactKind.ANY, versioned=False
-    )
+   # tracking.log_artifact(
+   #     name="data", path="data.csv", kind=V1ArtifactKind.ANY, versioned=False
+   # )
     
     traning_df=training_df.dropna()
     X = training_df.drop("Churn", axis=1)
