@@ -104,6 +104,10 @@ if __name__ == "__main__":
     # This automatically logs metrics relevant to regression
     log_regressor(rfr, X, y)
 
+    #Getting the artifacts path
+    path_art = tracking.get_artifacts_path()
+    print (path_art
+
     # Logging the model as joblib
     with tempfile.TemporaryDirectory() as d:
         model_path = os.path.join(d, "model.joblib")
