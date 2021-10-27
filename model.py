@@ -72,8 +72,12 @@ if __name__ == "__main__":
    # )
     
     traning_df=training_df.dropna()
+
+     
     X = training_df.drop("Churn", axis=1)
     y = training_df[["Churn"]]
+    X = training_df.drop(columns=["Churn", "CustomerID", "event_timestamp"])
+    y = training_df["Churn"]
 
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.20, random_state=42
