@@ -94,9 +94,9 @@ if __name__ == "__main__":
    # X_train = X_train.dropna()
    # X_test = X_test.dropna()
     
-    print (X.dtypes,"\n",y.dtypes)
+    print (X.dtypes,"\n",y.dtypes,"\n\n")
 
-    print (X.describe(),"\n")
+    print (X.isnull.any(),"\n")
 
     rfr.fit(X, y)
 
