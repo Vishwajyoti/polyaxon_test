@@ -81,7 +81,7 @@ if __name__ == "__main__":
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.20, random_state=42
     )
-    print (X_train.dtypes)
+    print (X_train.dtypes,"\n",y_train.dtypes)
 
     tracking.log_data_ref(content=X_train, name="x_train")
     tracking.log_data_ref(content=y_train, name="y_train")
@@ -91,6 +91,10 @@ if __name__ == "__main__":
     rfr = RandomForestRegressor(
         n_estimators=args.n_estimators, max_depth=args.max_depth
     )
+    X_train = X_train.dropna()
+    X_test = X_test.dropna()
+    
+    print (X_train.dtypes,"\n",y_train.dtypes)
     rfr.fit(X_train, y_train)
 
     # Polyaxon
