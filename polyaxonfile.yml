@@ -33,4 +33,4 @@ component:
       workingDir: '{{ globals.artifacts_path }}/polyaxon_test'
       env:
         - name: GOOGLE_APPLICATION_CREDENTIALS
-          value: '{{ globals.artifacts_path }}/polyaxon_test/vj-feat-ml-c83a9fc3f1e5.json'
+          value: '{{ globals.artifacts_path }}/polyaxon_test/vj-feat-ml-bc4305d71846.json'
