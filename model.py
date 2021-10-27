@@ -106,7 +106,7 @@ if __name__ == "__main__":
 
     #Getting the artifacts path
     path_art = tracking.get_artifacts_path()
-    print (path_art
+    print (path_art)
 
     # Logging the model as joblib
     with tempfile.TemporaryDirectory() as d:
