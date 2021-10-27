@@ -75,7 +75,7 @@ if __name__ == "__main__":
     traning_df=training_df.dropna()
 
      
-    X = training_df.drop(columns=["Churn", "CustomerID", "event_timestamp"])
+    X = training_df.drop(columns=["Churn", "CustomerID", "event_timestamp"],axis=1)
     y = training_df["Churn"]
 
    # X_train, X_test, y_train, y_test = train_test_split(
@@ -95,11 +95,14 @@ if __name__ == "__main__":
    # X_test = X_test.dropna()
     
     print (X.dtypes,"\n",y.dtypes)
+
+    print (X.describe(),"\n")
+
     rfr.fit(X, y)
 
     # Polyaxon
     # This automatically logs metrics relevant to regression
-    log_regressor(rfr, X_test, y_test)
+    log_regressor(rfr, X, y)
 
     # Logging the model as joblib
     with tempfile.TemporaryDirectory() as d:
