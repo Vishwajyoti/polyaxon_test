@@ -59,7 +59,7 @@ if __name__ == "__main__":
         "customer_pay_det:PaymentMethod",
         "customer_pay_det:MonthlyCharges",
         "customer_pay_det:TotalCharges",
-        "customer_pay_det:customer_churn_flag:Churn",
+        "customer_churn_flag:Churn",
     ]
 
     # Training DataFrame
@@ -70,7 +70,8 @@ if __name__ == "__main__":
     tracking.log_artifact(
         name="data", path="data.csv", kind=V1ArtifactKind.ANY, versioned=False
     )
-
+    
+    traning_df=training_df.dropna()
     X = training_df.drop("Churn", axis=1)
     y = training_df[["Churn"]]
 
